@@ -51,7 +51,7 @@ export function AboutSection() {
               <div className="grid grid-cols-2 gap-4">
                 <img
                   src={picnic6}
-                  alt="Luxury picnic setup"
+                  alt="Luxury experience setup"
                   className="rounded-2xl shadow-elegant w-full h-64 object-cover"
                 />
                 <img
@@ -72,10 +72,10 @@ export function AboutSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <p className="text-lg leading-relaxed text-muted-foreground mb-6 font-body">
-                A luxury picnic experience that transforms the simple act of outdoor dining into an elegant and unforgettable affair. Blending sophistication with nature, we offer guests the opportunity to indulge in comfort, style, and curated hospitality in some of the most scenic settings.
+                A luxury experience that transforms the simple act of outdoor dining into an elegant and unforgettable affair. Blending sophistication with nature, we offer guests the opportunity to indulge in comfort, style, and curated hospitality in some of the most scenic settings.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground mb-8 font-body">
-                Each picnic is thoughtfully designed — from plush seating and ambient décor to gourmet grazing platters and premium beverages — creating an atmosphere of relaxation and refined pleasure...
+                Each experience is thoughtfully designed — from plush seating and ambient decor to gourmet grazing platters and premium beverages — creating an atmosphere of relaxation and refined pleasure...
               </p>
               <p className="text-2xl font-script italic text-epoch-espresso">
                 "A state of great comfort & elegance"
@@ -87,3 +87,5 @@ export function AboutSection() {
     </section>
   );
 }
+
+

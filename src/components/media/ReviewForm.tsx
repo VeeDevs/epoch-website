@@ -122,7 +122,7 @@ export function ReviewForm({ onSubmitSuccess }: { onSubmitSuccess?: () => void }
           <Label htmlFor="review">Your Experience</Label>
           <Textarea
             id="review"
-            placeholder="Tell us about your luxury picnic experience..."
+            placeholder="Tell us about your luxury experience..."
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
@@ -157,3 +157,4 @@ export function ReviewForm({ onSubmitSuccess }: { onSubmitSuccess?: () => void }
     </motion.div>
   );
 }
+

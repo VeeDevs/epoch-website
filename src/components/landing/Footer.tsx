@@ -32,7 +32,7 @@ export function Footer() {
                 A state of great comfort & elegance
               </p>
               <p className="text-epoch-cream/70 font-body text-sm">
-                Luxury picnic experiences crafted with love in Pretoria East.
+                Luxury Experiences crafted with love in Pretoria East.
               </p>
             </div>
 
@@ -111,7 +111,7 @@ export function Footer() {
 
           <div className="border-t border-epoch-cream/20 pt-8 text-center">
             <p className="text-epoch-cream/60 font-body text-sm">
-              © {new Date().getFullYear()} The Epoch Luxury Picnic Experiences. All rights reserved.
+              &copy; {new Date().getFullYear()} The Epoch Luxury Experiences. All rights reserved.
             </p>
             <p className="text-epoch-cream/40 font-body text-xs mt-2">
               www.theepoch.co.za
@@ -122,3 +122,5 @@ export function Footer() {
     </>
   );
 }
+
+

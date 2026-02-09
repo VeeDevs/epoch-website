@@ -32,7 +32,7 @@ const defaultReviews: Review[] = [
     id: "3",
     author_name: "Linda & James",
     rating: 5,
-    content: "The most romantic picnic we've ever had. The sunset views and gourmet food made it unforgettable. Thank you, The Epoch!",
+    content: "The most romantic experience we've ever had. The sunset views and gourmet food made it unforgettable. Thank you, The Epoch!",
     created_at: new Date().toISOString(),
   },
 ];
@@ -143,3 +143,4 @@ export function ReviewsSection() {
     </section>
   );
 }
+

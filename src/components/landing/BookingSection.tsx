@@ -20,6 +20,7 @@ interface BookingForm {
   time: string;
   guests: number;
   occasion: string;
+  experienceType: string;
   location: string;
   addOns: string[];
   notes: string;
@@ -34,6 +35,7 @@ export function BookingSection() {
     time: "",
     guests: 2,
     occasion: "",
+    experienceType: "",
     location: "",
     addOns: [],
     notes: "",
@@ -41,7 +43,7 @@ export function BookingSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const calculateTotal = () => {
-    let total = PRICING.luxuryPicnic;
+    let total = PRICING.luxuryExperience;
     booking.addOns.forEach((addonId) => {
       const addon = ADD_ONS.find((a) => a.id === addonId);
       if (addon && addon.price > 0) {
@@ -66,22 +68,23 @@ export function BookingSection() {
       .filter(Boolean)
       .join(", ");
 
-    const message = `Hello The Epoch ✨
+    const message = `Hello The Epoch,
 
-I'd like to book a Luxury Picnic.
+I'd like to book a Luxury Experience.
 
-👤 Name: ${booking.name}
-📧 Email: ${booking.email}
-📱 Phone: ${booking.phone}
-📅 Date: ${booking.date}
-🕒 Time: ${booking.time}
-👥 Guests: ${booking.guests}
-💍 Occasion: ${booking.occasion}
-📍 Location: ${booking.location || "Not specified"}
-🎁 Add-ons: ${addOnsText || "None"}
-💰 Estimated Total: R${calculateTotal().toLocaleString()}
+Name: ${booking.name}
+Email: ${booking.email}
+Phone: ${booking.phone}
+Date: ${booking.date}
+Time: ${booking.time}
+Guests: ${booking.guests}
+Occasion: ${booking.occasion}
+Experience: ${booking.experienceType}
+Location: ${booking.location || "Not specified"}
+Add-ons: ${addOnsText || "None"}
+Estimated Total: R${calculateTotal().toLocaleString()}
 
-${booking.notes ? `📝 Notes: ${booking.notes}` : ""}
+${booking.notes ? `Notes: ${booking.notes}` : ""}
 
 Please let me know availability.`;
 
@@ -89,7 +92,15 @@ Please let me know availability.`;
   };
 
   const handleSubmit = async () => {
-    if (!booking.name || !booking.email || !booking.phone || !booking.date || !booking.time || !booking.occasion) {
+    if (
+      !booking.name ||
+      !booking.email ||
+      !booking.phone ||
+      !booking.date ||
+      !booking.time ||
+      !booking.occasion ||
+      !booking.experienceType
+    ) {
       toast.error("Please fill in all required fields");
       return;
     }
@@ -106,6 +117,7 @@ Please let me know availability.`;
         booking_time: booking.time,
         guests: booking.guests,
         occasion: booking.occasion,
+        package_type: booking.experienceType,
         location: booking.location || null,
         add_ons: booking.addOns,
         total_amount: calculateTotal(),
@@ -128,6 +140,7 @@ Please let me know availability.`;
         time: "",
         guests: 2,
         occasion: "",
+        experienceType: "",
         location: "",
         addOns: [],
         notes: "",
@@ -155,7 +168,7 @@ Please let me know availability.`;
             Reserve
           </p>
           <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-4">
-            Book Your Luxury Picnic
+            Book Your Luxury Experience
           </h2>
           <div className="section-divider mb-6" />
           <p className="text-lg text-muted-foreground font-body">
@@ -287,6 +300,26 @@ Please let me know availability.`;
                   </Select>
                 </div>
 
+                {/* Experience Type */}
+                <div className="space-y-2">
+                  <Label className="font-body text-foreground flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-epoch-gold" />
+                    Experience Type *
+                  </Label>
+                  <Select
+                    value={booking.experienceType}
+                    onValueChange={(value) => setBooking({ ...booking, experienceType: value })}
+                  >
+                    <SelectTrigger className="input-luxury h-12">
+                      <SelectValue placeholder="Select indoor or outdoor" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Outdoor Experience">Outdoor Experience</SelectItem>
+                      <SelectItem value="Indoor Experience">Indoor Experience</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
                 {/* Location */}
                 <div className="space-y-2">
                   <Label className="font-body text-foreground flex items-center gap-2">
@@ -372,3 +405,6 @@ Please let me know availability.`;
     </section>
   );
 }
+
+
+

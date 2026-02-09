@@ -38,13 +38,13 @@ export function PricingSection() {
               <div className="bg-gradient-to-r from-epoch-gold to-epoch-gold-light p-6 text-center">
                 <Sparkles className="w-8 h-8 mx-auto mb-2 text-epoch-espresso" />
                 <h3 className="text-2xl font-serif text-epoch-espresso">
-                  Luxury Picnic Experience
+                  Luxury Experience
                 </h3>
               </div>
               <CardContent className="p-8">
                 <div className="text-center mb-8">
                   <span className="text-5xl font-serif text-epoch-espresso">
-                    R{PRICING.luxuryPicnic.toLocaleString()}
+                    R{PRICING.luxuryExperience.toLocaleString()}
                   </span>
                   <span className="text-muted-foreground font-body block mt-2">
                     per couple

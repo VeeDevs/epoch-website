@@ -49,7 +49,7 @@ export default function Media() {
           </h1>
           <div className="w-24 h-[2px] mx-auto bg-gradient-to-r from-epoch-gold to-epoch-gold-light mb-6" />
           <p className="text-epoch-cream/80 max-w-2xl mx-auto">
-            Browse photos from our guests' luxury picnic experiences and share your own magical moments with The Epoch community.
+            Browse photos from our guests' luxury experiences and share your own magical moments with The Epoch community.
           </p>
         </motion.div>
       </section>
@@ -104,3 +104,4 @@ export default function Media() {
     </div>
   );
 }
+

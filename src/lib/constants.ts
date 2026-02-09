@@ -4,7 +4,7 @@ export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 // Pricing
 export const PRICING = {
-  luxuryPicnic: 1200,
+  luxuryExperience: 1200,
   addOns: {
     grazingBox: 350,
     snackPlatter: 250,
@@ -34,7 +34,7 @@ export const TIME_SLOTS = [
 // Package features
 export const PACKAGE_FEATURES = [
   "Full setup & clearing up",
-  "Table, chairs & luxury décor",
+  "Table, chairs & luxury decor",
   "Glasses, trays, plates & cutlery",
   "Ice bucket & drinks trolley",
   "Fresh flowers",
@@ -67,6 +67,7 @@ export const THEMES = [
   {
     id: "celebration-luxe",
     name: "Celebration Luxe",
-    description: "Bold colors, premium décor, and festive touches for birthdays and special milestones.",
+    description: "Bold colors, premium decor, and festive touches for birthdays and special milestones.",
   },
 ] as const;
+

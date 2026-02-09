@@ -43,7 +43,7 @@ export function HeroSection() {
         >
           <img
             src={heroImages[currentImage]}
-            alt="Luxury picnic setup"
+            alt="Luxury experience setup"
             className="w-full h-full object-cover"
           />
         </motion.div>
@@ -69,7 +69,7 @@ export function HeroSection() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="text-4xl md:text-6xl lg:text-7xl text-epoch-cream mb-4 text-shadow-hero font-serif"
         >
-          Luxury Picnic Experiences
+          Luxury Experience
         </motion.h1>
 
         <motion.p
@@ -87,7 +87,7 @@ export function HeroSection() {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="text-lg md:text-xl text-epoch-cream/90 max-w-2xl mb-10 font-body font-light"
         >
-          Curated, elegant picnic moments for proposals, anniversaries and unforgettable memories in Pretoria East & surrounding areas.
+          Curated, elegant experiences for proposals, anniversaries and unforgettable memories in Pretoria East & surrounding areas.
         </motion.p>
 
         <motion.div

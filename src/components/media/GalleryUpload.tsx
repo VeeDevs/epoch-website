@@ -96,7 +96,7 @@ export function GalleryUpload({ onUploadSuccess }: { onUploadSuccess?: () => voi
 
       {!user ? (
         <p className="text-center text-muted-foreground">
-          Please sign in to upload your picnic photos.
+          Please sign in to upload your experience photos.
         </p>
       ) : (
         <div className="space-y-6">
@@ -167,3 +167,4 @@ export function GalleryUpload({ onUploadSuccess }: { onUploadSuccess?: () => voi
     </motion.div>
   );
 }
+

@@ -67,7 +67,7 @@ export function GalleryGrid() {
         >
           <img
             src={item.image_url}
-            alt={item.caption || "Picnic experience"}
+            alt={item.caption || "Luxury experience"}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           {item.caption && (
@@ -82,3 +82,4 @@ export function GalleryGrid() {
     </div>
   );
 }
+
