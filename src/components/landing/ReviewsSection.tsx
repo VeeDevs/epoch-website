@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 interface Review {
   id: string;
@@ -38,25 +36,6 @@ const defaultReviews: Review[] = [
 ];
 
 export function ReviewsSection() {
-  const [reviews, setReviews] = useState<Review[]>(defaultReviews);
-
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  const fetchReviews = async () => {
-    const { data, error } = await supabase
-      .from("reviews")
-      .select("*")
-      .eq("is_approved", true)
-      .order("created_at", { ascending: false })
-      .limit(6);
-
-    if (!error && data && data.length > 0) {
-      setReviews(data);
-    }
-  };
-
   return (
     <section className="py-24 px-6 bg-epoch-espresso">
       <div className="max-w-6xl mx-auto">
@@ -77,7 +56,7 @@ export function ReviewsSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reviews.map((review, index) => (
+          {defaultReviews.map((review, index) => (
             <motion.div
               key={review.id}
               initial={{ opacity: 0, y: 30 }}
@@ -116,7 +95,6 @@ export function ReviewsSection() {
           ))}
         </div>
 
-        {/* Link to Media Page */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,7 +106,7 @@ export function ReviewsSection() {
             href="/media"
             className="inline-flex items-center gap-2 text-epoch-gold hover:text-epoch-gold-light transition-colors font-body text-lg group"
           >
-            <span>View all reviews & share your experience</span>
+            <span>View the live gallery</span>
             <svg
               className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
               fill="none"

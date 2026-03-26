@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 import picnic1 from "@/assets/picnic-1.jpeg";
 import picnic2 from "@/assets/picnic-2.jpeg";
 import picnic3 from "@/assets/picnic-3.jpeg";
-import picnic4 from "@/assets/picnic-4.jpeg";
 import picnic5 from "@/assets/picnic-5.jpeg";
 import indoor1 from "@/assets/indoor 1.jpeg";
 import indoor2 from "@/assets/indoor 2.jpeg";
-import indoor3 from "@/assets/indoor 3.jpeg";
 import indoor3 from "@/assets/indoor 3.jpeg";
 
 const outdoorExperiences = [
@@ -58,13 +55,6 @@ const showcaseImages = [
   { src: indoor2, label: "Indoor Suite" },
   { src: indoor3, label: "Indoor Soiree" },
 ];
-
-const promoDetails = {
-  title: "Celebrate The Month Of Love In Style",
-  highlight: "Special 20% Off",
-  deadline: "Until 28 February 2026",
-  cta: "Book The Sale",
-};
 
 export function ThemesSection() {
   return (
@@ -157,61 +147,6 @@ export function ThemesSection() {
             ))}
           </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative overflow-hidden rounded-3xl border border-epoch-gold/30 shadow-elegant bg-epoch-espresso"
-        >
-          <div className="grid lg:grid-cols-[1.1fr_1fr] items-stretch">
-            <div className="relative min-h-[320px] lg:min-h-[420px]">
-              <img
-                src={indoor3}
-                alt="Indoor experience sale promotion"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-              <span className="absolute top-6 left-6 inline-flex items-center gap-2 rounded-full bg-epoch-gold/90 px-4 py-2 text-xs font-body uppercase tracking-[0.2em] text-epoch-espresso">
-                Limited Time Offer
-              </span>
-            </div>
-            <div className="p-10 lg:p-14 flex flex-col justify-center gap-6 text-epoch-cream">
-              <div>
-                <p className="text-epoch-gold font-body uppercase tracking-[0.25em] text-xs mb-3">
-                  Indoor Promo
-                </p>
-                <h3 className="text-3xl md:text-4xl font-serif mb-3">
-                  {promoDetails.title}
-                </h3>
-                <p className="text-2xl font-serif text-epoch-champagne">
-                  {promoDetails.highlight}
-                </p>
-                <p className="mt-2 text-sm font-body text-epoch-cream/80">
-                  {promoDetails.deadline}
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  variant="hero"
-                  size="lg"
-                  onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  {promoDetails.cta}
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-epoch-champagne text-epoch-champagne hover:bg-epoch-champagne hover:text-epoch-espresso"
-                  onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  Enquire Now
-                </Button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
 
         <div>
           <h3 className="text-2xl md:text-3xl font-serif text-foreground mb-4 text-center">

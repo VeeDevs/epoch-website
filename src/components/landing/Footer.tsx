@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, MapPin, Instagram, Facebook, Camera, User, Shield } from "lucide-react";
+import { MessageCircle, Phone, MapPin, Instagram, Facebook, Camera, Tag } from "lucide-react";
 import { WHATSAPP_BASE_URL } from "@/lib/constants";
 import { Link } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
 
 export function Footer() {
-  const { user, isAdmin } = useAuth();
-
   return (
     <>
       {/* Floating WhatsApp Button - Mobile */}
@@ -45,27 +42,15 @@ export function Footer() {
                   className="flex items-center gap-3 hover:text-epoch-gold transition-colors"
                 >
                   <Camera className="w-4 h-4" />
-                  Gallery & Reviews
+                  Live Gallery
                 </Link>
-                {user ? (
-                  isAdmin && (
-                    <Link
-                      to="/admin"
-                      className="flex items-center gap-3 hover:text-epoch-gold transition-colors"
-                    >
-                      <Shield className="w-4 h-4" />
-                      Admin Dashboard
-                    </Link>
-                  )
-                ) : (
-                  <Link
-                    to="/auth"
-                    className="flex items-center gap-3 hover:text-epoch-gold transition-colors"
-                  >
-                    <User className="w-4 h-4" />
-                    Login / Sign Up
-                  </Link>
-                )}
+                <a
+                  href="/#pricing"
+                  className="flex items-center gap-3 hover:text-epoch-gold transition-colors"
+                >
+                  <Tag className="w-4 h-4" />
+                  Price List
+                </a>
               </div>
             </div>
 

@@ -1,59 +1,34 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
-import { ImageOff } from "lucide-react";
+import picnic1 from "@/assets/picnic-1.jpeg";
+import picnic2 from "@/assets/picnic-2.jpeg";
+import picnic3 from "@/assets/picnic-3.jpeg";
+import picnic4 from "@/assets/picnic-4.jpeg";
+import picnic5 from "@/assets/picnic-5.jpeg";
+import picnic6 from "@/assets/picnic-6.jpeg";
+import picnic7 from "@/assets/picnic-7.jpeg";
+import indoor1 from "@/assets/indoor 1.jpeg";
+import indoor2 from "@/assets/indoor 2.jpeg";
+import indoor3 from "@/assets/indoor 3.jpeg";
 
 interface GalleryItem {
   id: string;
   image_url: string;
   caption: string | null;
-  created_at: string;
 }
 
 export function GalleryGrid() {
-  const [images, setImages] = useState<GalleryItem[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchGallery();
-  }, []);
-
-  const fetchGallery = async () => {
-    const { data, error } = await supabase
-      .from("gallery")
-      .select("*")
-      .eq("is_approved", true)
-      .order("created_at", { ascending: false });
-
-    if (!error && data) {
-      setImages(data);
-    }
-    setLoading(false);
-  };
-
-  if (loading) {
-    return (
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="aspect-square bg-muted animate-pulse rounded-xl"
-          />
-        ))}
-      </div>
-    );
-  }
-
-  if (images.length === 0) {
-    return (
-      <div className="text-center py-16">
-        <ImageOff className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-        <p className="text-muted-foreground text-lg">
-          No photos yet. Be the first to share your experience!
-        </p>
-      </div>
-    );
-  }
+  const images: GalleryItem[] = [
+    { id: "1", image_url: picnic1, caption: "Garden romance setup" },
+    { id: "2", image_url: picnic2, caption: "Lakeside luxury details" },
+    { id: "3", image_url: picnic3, caption: "Estate brunch styling" },
+    { id: "4", image_url: picnic4, caption: "Golden hour tablescape" },
+    { id: "5", image_url: picnic5, caption: "Outdoor celebration mood" },
+    { id: "6", image_url: picnic6, caption: "Signature picnic staging" },
+    { id: "7", image_url: picnic7, caption: "Elegant guest setting" },
+    { id: "8", image_url: indoor1, caption: "Indoor candlelit lounge" },
+    { id: "9", image_url: indoor2, caption: "Private suite styling" },
+    { id: "10", image_url: indoor3, caption: "Indoor soiree showcase" },
+  ];
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

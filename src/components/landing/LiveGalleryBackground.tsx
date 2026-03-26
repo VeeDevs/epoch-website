@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
 
 // Default images to show if no gallery images exist
 import picnic1 from "@/assets/picnic-1.jpeg";
@@ -24,12 +23,8 @@ export function LiveGalleryBackground({
   overlay = true,
   children 
 }: LiveGalleryBackgroundProps) {
-  const [images, setImages] = useState<string[]>(defaultImages);
+  const [images] = useState<string[]>(defaultImages);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    fetchGalleryImages();
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,21 +32,6 @@ export function LiveGalleryBackground({
     }, 5000);
     return () => clearInterval(interval);
   }, [images.length]);
-
-  const fetchGalleryImages = async () => {
-    const { data, error } = await supabase
-      .from("gallery")
-      .select("image_url")
-      .eq("is_approved", true)
-      .order("created_at", { ascending: false })
-      .limit(20);
-
-    if (!error && data && data.length > 0) {
-      const galleryUrls = data.map((item) => item.image_url);
-      // Combine with default images for variety
-      setImages([...galleryUrls, ...defaultImages.slice(0, 3)]);
-    }
-  };
 
   return (
     <div className={`relative overflow-hidden ${className}`}>

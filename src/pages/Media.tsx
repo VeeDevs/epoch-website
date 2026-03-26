@@ -1,19 +1,12 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { GalleryUpload } from "@/components/media/GalleryUpload";
 import { GalleryGrid } from "@/components/media/GalleryGrid";
-import { ReviewForm } from "@/components/media/ReviewForm";
-import { ReviewsList } from "@/components/media/ReviewsList";
 import { Footer } from "@/components/landing/Footer";
-import { Camera, MessageSquare, ArrowLeft } from "lucide-react";
+import { Camera, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { PRICING } from "@/lib/constants";
 
 export default function Media() {
-  const [galleryKey, setGalleryKey] = useState(0);
-  const [reviewsKey, setReviewsKey] = useState(0);
-
   return (
     <div className="min-h-screen bg-background font-body">
       {/* Header */}
@@ -42,14 +35,14 @@ export default function Media() {
           className="max-w-4xl mx-auto text-center"
         >
           <p className="text-epoch-gold font-body uppercase tracking-[0.2em] text-sm mb-4">
-            Community
+            Showcase
           </p>
           <h1 className="text-4xl md:text-5xl font-serif text-epoch-cream mb-4">
-            Share Your Experience
+            The Epoch Gallery
           </h1>
           <div className="w-24 h-[2px] mx-auto bg-gradient-to-r from-epoch-gold to-epoch-gold-light mb-6" />
           <p className="text-epoch-cream/80 max-w-2xl mx-auto">
-            Browse photos from our guests' luxury experiences and share your own magical moments with The Epoch community.
+            Browse signature indoor and outdoor setups, explore the atmosphere of our luxury experiences, and head straight to booking when you are ready.
           </p>
         </motion.div>
       </section>
@@ -57,46 +50,53 @@ export default function Media() {
       {/* Main Content */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <Tabs defaultValue="gallery" className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-              <TabsTrigger value="gallery" className="flex items-center gap-2">
-                <Camera className="h-4 w-4" />
-                Photo Gallery
-              </TabsTrigger>
-              <TabsTrigger value="reviews" className="flex items-center gap-2">
-                <MessageSquare className="h-4 w-4" />
-                Reviews
-              </TabsTrigger>
-            </TabsList>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 text-epoch-gold uppercase tracking-[0.2em] text-sm mb-4">
+              <Camera className="h-4 w-4" />
+              Live Gallery
+            </div>
+            <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-4">
+              Signature setups and styling details
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              The look and feel stay front and center here: curated decor, romantic styling, and elegant spaces designed for unforgettable moments.
+            </p>
+          </div>
 
-            <TabsContent value="gallery">
-              <div className="grid lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2">
-                  <h2 className="text-2xl font-serif text-foreground mb-6">
-                    Guest Gallery
-                  </h2>
-                  <GalleryGrid key={galleryKey} />
-                </div>
-                <div>
-                  <GalleryUpload onUploadSuccess={() => setGalleryKey((k) => k + 1)} />
-                </div>
-              </div>
-            </TabsContent>
+          <GalleryGrid />
 
-            <TabsContent value="reviews">
-              <div className="grid lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2">
-                  <h2 className="text-2xl font-serif text-foreground mb-6">
-                    Customer Reviews
-                  </h2>
-                  <ReviewsList key={reviewsKey} />
-                </div>
-                <div>
-                  <ReviewForm onSubmitSuccess={() => setReviewsKey((k) => k + 1)} />
-                </div>
+          <div className="mt-16 grid md:grid-cols-2 gap-6">
+            <div className="rounded-3xl border border-border bg-card p-8 shadow-elegant">
+              <p className="text-epoch-gold uppercase tracking-[0.2em] text-sm mb-3">
+                Pricing
+              </p>
+              <h3 className="text-3xl font-serif text-foreground mb-3">
+                From R{PRICING.luxuryExperience.toLocaleString()}
+              </h3>
+              <p className="text-muted-foreground">
+                Luxury indoor and outdoor experiences crafted with The Epoch styling, decor, and signature finishing touches.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-border bg-card p-8 shadow-elegant flex flex-col justify-between">
+              <div>
+                <p className="text-epoch-gold uppercase tracking-[0.2em] text-sm mb-3">
+                  Booking
+                </p>
+                <h3 className="text-3xl font-serif text-foreground mb-3">
+                  Reserve your date
+                </h3>
+                <p className="text-muted-foreground">
+                  Ready to book? Use the booking form on the homepage and continue directly to WhatsApp.
+                </p>
               </div>
-            </TabsContent>
-          </Tabs>
+              <Link to="/#booking" className="mt-6 inline-flex">
+                <Button variant="hero" size="lg">
+                  Go to Booking
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
