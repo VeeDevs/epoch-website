@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, MapPin, Instagram, Facebook, Camera, Tag } from "lucide-react";
+import { MessageCircle, Phone, MapPin, Instagram, Facebook, Tag } from "lucide-react";
 import { WHATSAPP_BASE_URL } from "@/lib/constants";
-import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -37,19 +36,19 @@ export function Footer() {
             <div>
               <h4 className="font-serif text-lg mb-4">Explore</h4>
               <div className="space-y-3 text-epoch-cream/80 font-body text-sm">
-                <Link
-                  to="/media"
-                  className="flex items-center gap-3 hover:text-epoch-gold transition-colors"
-                >
-                  <Camera className="w-4 h-4" />
-                  Live Gallery
-                </Link>
                 <a
                   href="/#pricing"
                   className="flex items-center gap-3 hover:text-epoch-gold transition-colors"
                 >
                   <Tag className="w-4 h-4" />
                   Price List
+                </a>
+                <a
+                  href="/#booking"
+                  className="flex items-center gap-3 hover:text-epoch-gold transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Book Now
                 </a>
               </div>
             </div>
